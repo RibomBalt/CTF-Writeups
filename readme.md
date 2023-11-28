@@ -37,6 +37,17 @@ Lysithea, 33/191, Score 1816 (4 misc + 1 web)
 
 第二问没有外网，需要换个思路。我刚好查到一个单文件打这个洞的[POC](https://github.com/xcanwin/CVE-2023-4357-Chrome-XXE)，应该可以解决读取的问题（当然，我本地又没跑通，没时间检查问题出在哪里了）。此外还得解决回传问题，这次不像微积分小练习，是真的没有任何回传接口，我猜是得想办法让selenium报错/崩溃打侧信道，不过即使调出来应该也要挺花时间。
 
+#### 11.28 update
+
+看到了一个[writeup](https://blog.csdn.net/Jayjay___/article/details/134643090)
+1. svg里面可以直接插script标签执行代码，就不用费劲往onload里塞one-liner了。xml确实是不行。poc确实是之前看到那个single file改的，也不知道为啥当时就是打不通，烦躁。
+2. Javascript侧信道：`while(true){console.log(1);}`。看起来js死循环是可以成功让selenium卡住的，这个可能和selenium的timeout策略有关，js没执行完走的是set_page_load_timeout的15秒而不是time.sleep的4秒（事实上如果是需要load finish根本走不到time.sleep），总之这个很好测。
+
+> selenium timeout: ([https://www.browserstack.com/guide/understanding-selenium-timeouts](https://www.browserstack.com/guide/understanding-selenium-timeouts))
+> - It is 0 seconds for implicit waits. Here the Selenium Command reports immediately if it cannot find an element.
+> - It is 300 seconds for page loads.
+> - It is 30 seconds for script timeouts.
+
 ### wait for first blood (misc)
 这个题先不说难度，机制上就感觉挺新鲜的。这个题服务器会传回一个不完整（缺失部分像素）的二维码，并且随着时间推移，服务器返回的二维码缺失像素会越来越少，二维码会逐渐变得完整，最终在比赛快结束的时间段二维码是可以通过内置纠错机制复原的。因为这个题到第二天晚上才逐渐可解，所以准备打这个题抢一血的师傅们只能被迫熬夜了（我直接通宵了，从前一天10点开始，8点交flag）。
 
@@ -73,6 +84,9 @@ Lysithea, 33/191, Score 1816 (4 misc + 1 web)
 > ![](osint/map_shop.png)
 
 众所周知，OSINT只要被卡住就等于没有进度。
+
+#### 11.28更新
+看到已有writeup，关内站的伊势左木町是正确的，当然店名需要谷歌街景逛街仔细找。感觉好麻。
 
 ### maze & nanopyenc (rev - pyinstaller逆向)
 出了两个pyinstaller逆向题，都做了一半没做出来。
