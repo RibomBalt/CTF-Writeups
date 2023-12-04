@@ -1,0 +1,42 @@
+Gadgets information
+============================================================
+0x00000000000001d6 : adds r1, #0x30 ; movs r2, r0 ; movs r0, r0 ; movs r6, r0 ; movs r0, r0 ; movs r0, r1 ; movs r0, r0 ; blx r3
+0x000000000000167e : adds r2, #0x5f ; adds r4, #0x2e ; strb r0, [r0, #0xc] ; strb r5, [r4, #0x11] ; str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x0000000000001680 : adds r4, #0x2e ; strb r0, [r0, #0xc] ; strb r5, [r4, #0x11] ; str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x00000000000001d2 : asrs r2, r0 ; sbcs r0, r2 ; adds r1, #0x30 ; movs r2, r0 ; movs r0, r0 ; movs r6, r0 ; movs r0, r0 ; movs r0, r1 ; movs r0, r0 ; blx r3
+0x00000000000001e4 : blx r3
+0x0000000000001678 : bx r8
+0x0000000000001678 : bx r8 ; ldr r1, [pc, #0x130] ; muls r2, r0, r2 ; adds r2, #0x5f ; adds r4, #0x2e ; strb r0, [r0, #0xc] ; strb r5, [r4, #0x11] ; str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x000000000000167a : ldr r1, [pc, #0x130] ; muls r2, r0, r2 ; adds r2, #0x5f ; adds r4, #0x2e ; strb r0, [r0, #0xc] ; strb r5, [r4, #0x11] ; str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x0000000000001676 : ldr r1, [r5, #0x64] ; bx r8
+0x000000000000166a : ldr r4, [r4, #0x14] ; ldrsh r6, [r5, r5] ; strb r5, [r6, #0xd] ; str r5, [r4, #0x44] ; strb r0, [r0, #0xc] ; str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+0x00000000000016a4 : ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x000000000000169c : ldr r5, [r4, #0x64] ; ldrsh r4, [r4, r5] ; lsls r7, r3, #1 ; strb r3, [r6, #0x11] ; ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x0000000000001696 : ldr r5, [r4, #0x64] ; lsls r4, r4, #1 ; ldrsh r7, [r3, r5] ; ldr r5, [r4, #0x64] ; ldrsh r4, [r4, r5] ; lsls r7, r3, #1 ; strb r3, [r6, #0x11] ; ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x000000000000169e : ldrsh r4, [r4, r5] ; lsls r7, r3, #1 ; strb r3, [r6, #0x11] ; ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x000000000000166c : ldrsh r6, [r5, r5] ; strb r5, [r6, #0xd] ; str r5, [r4, #0x44] ; strb r0, [r0, #0xc] ; str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+0x0000000000001666 : ldrsh r7, [r1, r5] ; strb r3, [r6, #0x11] ; ldr r4, [r4, #0x14] ; ldrsh r6, [r5, r5] ; strb r5, [r6, #0xd] ; str r5, [r4, #0x44] ; strb r0, [r0, #0xc] ; str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+0x000000000000169a : ldrsh r7, [r3, r5] ; ldr r5, [r4, #0x64] ; ldrsh r4, [r4, r5] ; lsls r7, r3, #1 ; strb r3, [r6, #0x11] ; ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x0000000000001698 : lsls r4, r4, #1 ; ldrsh r7, [r3, r5] ; ldr r5, [r4, #0x64] ; ldrsh r4, [r4, r5] ; lsls r7, r3, #1 ; strb r3, [r6, #0x11] ; ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x00000000000016a0 : lsls r7, r3, #1 ; strb r3, [r6, #0x11] ; ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x00000000000001e2 : movs r0, r0 ; blx r3
+0x00000000000001de : movs r0, r0 ; movs r0, r1 ; movs r0, r0 ; blx r3
+0x00000000000001da : movs r0, r0 ; movs r6, r0 ; movs r0, r0 ; movs r0, r1 ; movs r0, r0 ; blx r3
+0x00000000000001e0 : movs r0, r1 ; movs r0, r0 ; blx r3
+0x00000000000001d8 : movs r2, r0 ; movs r0, r0 ; movs r6, r0 ; movs r0, r0 ; movs r0, r1 ; movs r0, r0 ; blx r3
+0x00000000000001dc : movs r6, r0 ; movs r0, r0 ; movs r0, r1 ; movs r0, r0 ; blx r3
+0x000000000000167c : muls r2, r0, r2 ; adds r2, #0x5f ; adds r4, #0x2e ; strb r0, [r0, #0xc] ; strb r5, [r4, #0x11] ; str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x00000000000001d4 : sbcs r0, r2 ; adds r1, #0x30 ; movs r2, r0 ; movs r0, r0 ; movs r6, r0 ; movs r0, r0 ; movs r0, r1 ; movs r0, r0 ; blx r3
+0x0000000000001674 : str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+0x0000000000001670 : str r5, [r4, #0x44] ; strb r0, [r0, #0xc] ; str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+0x0000000000001688 : str r5, [r6, #0x64] ; bx r8
+0x0000000000001686 : str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x0000000000001672 : strb r0, [r0, #0xc] ; str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+0x0000000000001682 : strb r0, [r0, #0xc] ; strb r5, [r4, #0x11] ; str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x0000000000001668 : strb r3, [r6, #0x11] ; ldr r4, [r4, #0x14] ; ldrsh r6, [r5, r5] ; strb r5, [r6, #0xd] ; str r5, [r4, #0x44] ; strb r0, [r0, #0xc] ; str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+0x00000000000016a2 : strb r3, [r6, #0x11] ; ldr r4, [r4, #0x74] ; strb r5, [r6, #0x11] ; bx r8
+0x0000000000001684 : strb r5, [r4, #0x11] ; str r6, [r6, #0x24] ; str r5, [r6, #0x64] ; bx r8
+0x00000000000016a6 : strb r5, [r6, #0x11] ; bx r8
+0x000000000000166e : strb r5, [r6, #0xd] ; str r5, [r4, #0x44] ; strb r0, [r0, #0xc] ; str r4, [r6, #0x44] ; ldr r1, [r5, #0x64] ; bx r8
+
+Unique gadgets found: 38
