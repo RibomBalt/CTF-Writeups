@@ -121,7 +121,7 @@ AST虽然丧心病狂但是已知规则是能绕的，但hook触发条件完全�
 
 赛后补充：Google太拉了，bing国际版直接出当事人linkedin动态。另外我居然没想到Mellingen是姓，Linkedin主页可以直接按姓名查人的。
 
-![](../osint-in2win9945/flag.png)
+![](./osint-in2win9945/flag.png)
 
 ## pwn-ribbit
 简单粗暴的`gets`栈溢出，目标要用ROP链实现指定参数调用`win`函数，程序绝大部分静态编译。第二个参数是个char[]需要和两个不同的字符串进行比较，但strcpy似乎不能用（未知原因），所以我是用`gets`解决第二个参数`strcmp`两处比较的。似乎也可以不管win函数直接`ret2syscall`
@@ -131,7 +131,7 @@ AST虽然丧心病狂但是已知规则是能绕的，但hook触发条件完全�
 
 因为2.31还没有引入tcache xor检查，所以只要UAF把tcache指针指向任意位置即可无代价任意读写。首先把tcache bin的0xa0对应的count填满为7，然后把一个已分配的0x50 trunk修改大小成为0xa0（extend到2倍大小），然后free掉就进入unsorted bin，泄露main_arena进而得到libc基址，之后修改`__malloc_hook`到目标`win`函数即可。
 
-[exp](../pwn-heapnotes/exp.py)
+[exp](./pwn-heapnotes/exp.py)
 
 ## pwn-ret2thumb （未完成）
 从这里开始全是ARM了，尝试了一下第一题但是没跑通。
@@ -145,23 +145,23 @@ ARM ROP可以参考些网上的资料，gadget不太一样，类似于`pop {fp, 
 ## rev/crisscross
 每个字节的块加密，然后根据奇偶会把连续两个字节放到目前已知的第一个/最后一个。块内是两重的表加密，其中一个表只有20个元素所以不确定是否一定可逆？不过flag这组给的是有唯一解的。
 
-[rev](../rev-crisscross/rev.py)
+[rev](./rev-crisscross/rev.py)
 
 ## rev/itchyscratchy
 第一次接触Scratch 3竟是在CTF逆向题里，真不愧是游戏化编程代表作啊，感觉比NS上的Game Builder Garage都要好玩。
 
 Turbowarp网站可以在线查看编辑sb3代码。其实也是非常简单的输入密码型逆向，逻辑不长且非常可视化/易学（小孩子都能看懂！）。常量池在左侧搜索对应变量点一下就能看到了。注意数组寻址是1开始的。
 
-![](../rev-itchyscratchy/game.png)
+![](./rev-itchyscratchy/game.png)
 
-[rev](../rev-itchyscratchy/pseudo.py)
+[rev](./rev-itchyscratchy/pseudo.py)
 
 ## rev/shifty-sands
 迷宫逆向题，这个题的trick在于没有回显，并且迷宫内部分标为S的沙子是随回合移动的（4回合为一周期），限制了最大步数（0x32步）。flag到服务器上，nc进去玩通关就给flag，但本地和远程程序一样且没有随机要素。
 
 我的玩法是用pwnlib连一个gdb，每个回合打上断点，输出当前坐标和地图，这样本地玩的时候就知道进度是否推进了，然后因为迷宫相当模块化，分段随便试一试固定组合通过各个难点，连起来就好了。
 
-虽然框架没设计好，所以好像输出的位置并非是实际位置，但能用了。[rev](../rev-sands/rev_sands.py)
+虽然框架没设计好，所以好像输出的位置并非是实际位置，但能用了。[rev](./rev-sands/rev_sands.py)
 
 ## rev/two-step
 名为two-step实为nine-step，超级集邮碎片砍一刀套娃逆向题，纯纯折磨，但我还是做出来了我真闲啊。
