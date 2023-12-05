@@ -107,6 +107,9 @@ def gallery():
 
 Case 4无论如何都Time exceed，全leak要200次，算了，咱不卷这个了
 
+#### 赛后补充
+看了一个[视频Writeup](https://www.youtube.com/watch?v=ibNhCi2Zw0g)。原来这个题的flag只需要给第一个题提交错误答案然后看Check Log啊？？？甚至他已经给我1/3了我都没去看。这么看下来就算第二题AC了应该也是给hint吧，逆天。
+
 ## misc/Myjail (未完成)
 丧心病狂的python沙箱逃逸，包含AST沙箱、audithook和builtins过滤，可用的东西很少，并且限制exec一行4096字符（疑似是TCP单次包文上限）
 
@@ -119,7 +122,9 @@ AST虽然丧心病狂但是已知规则是能绕的，但hook触发条件完全�
 - 在其profile能看到国籍(norway)，能看到另一个名为Kaspermellingencs的[blogspot博客](https://kaspermellingencs.blogspot.com/2023/11/job-hunting.html#comments)，有三篇文章，最近一篇说他为了找工作在Linkedin建立了自己的主页
 - 然后线索断了，因为谷歌没搜出这个人的Linkedin主页
 
-赛后补充：Google太拉了，bing国际版直接出当事人linkedin动态。另外我居然没想到Mellingen是姓，Linkedin主页可以直接按姓名查人的。
+赛后补充：
+- Google太拉了，bing国际版直接出当事人linkedin动态。另外我居然没想到Mellingen是姓，Linkedin主页可以直接按姓名查人的。
+- 2023.12.5: web of archive 能查到那个被删了的图片，但那天我就是打不开，我以为是没有爬取记录，吐了，可能是选项问题，得从主页进。顺便不要迷信谷歌，搜集信息也考虑bing和duckduckgo
 
 ![](./osint-in2win9945/flag.png)
 
@@ -139,6 +144,8 @@ AST虽然丧心病狂但是已知规则是能绕的，但hook触发条件完全�
 ARM ROP可以参考些网上的资料，gadget不太一样，类似于`pop {fp, pc}`这样的命令可以pop 多个寄存器，而pop进pc实际就是ret指令。调用约定也不太一样，一般用r0-r3传前几个参数，用r0返回。似乎所有arm指令都是4个字节，但是似乎ARM可以跳转到奇数指令，就会进入所谓thumb指令集，地址表示方法似乎也会发生变化，非常神奇。
 
 这几个pwn似乎有[WP](https://blog.csdn.net/weixin_46483787/article/details/134752187)出来了，可以看
+
+- 补充：看这个比赛整体难度，这个题里面是有shellcode的，搜strings能搜出`/bin/sh`，只是Ghidra没有反编译，只需要跳转就行了。不过为了系统学习还是用ROP打比较好
 
 > 逆向题做出多少取决于你想多大程度折磨自己
 
