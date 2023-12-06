@@ -96,11 +96,20 @@ pyinstaller本身逆向是很容易的，有pyinstxinstaller这种项目，甚�
 #### maze (cython module)
 `chal.pyc`就一个`from maze import run; run()`，一看这个`maze`竟然是个.so文件，在里面看到了大量Python API调用和Cython等字样。搜索[Cython逆向](https://panda0s.top/2021/05/07/Cython-Reverse/)，结果好家伙结构怎么那么复杂，看的头都大了。从stringtab里倒是提取出了迷宫的地图，但是完全不知道该怎么玩。
 
-#### nanopyenc (SMC???)
+#### nanopyenc (Python `from xxx import *` 内置变量覆写)
 这个题倒是好好地逆向出了`secret.py`和`run.py`。看起来是个AES加密，key和cipher都是明文给的。简单写了代码，运行……怎么结果是个`flag{test}`啊，但是前面又assert要求满足TPCTF的flag格式？百思不得其解，也许是里面做了些什么花活（比如self-modified-code，这种基于虚拟机的甚至不需要mprotect改权限），比如替换了enc内容，或者干脆劫持了整个程序流程，看不出来。
+
+- 2023.12.6 补充：看[writeup](https://www.ctfiot.com/149063.html), 其实是藏在`from Crypto.Util.number import *`里面把enc, list都覆写了，本身pyc格式没做手脚（不然pyistxinstaller肯定就报错了）
 
 
 ### pwn-safehttpd (pwn - 高版本glibc)
 这个题把HTTP功能部分程序看懂了，知道了怎么构造请求调用后台的几个函数。但是这个题很有意思的，只能有一次输出机会，输出后就把输出流关闭了，当然你可以选择在发送请求时带特定头重置输出流从而不关闭，但是代价就是这一轮的输出拿不到，相当于把输出机会留到后面，想来这个是leak地址用的。
 
 看后面那些功能可能是堆利用，结果一看libc版本2.37，保护全开，好家伙，告辞。（后面有机会或许可以再深入研究一下）
+
+### core
+看到[星盟网安队的Writeup](https://blog.xmcve.com/2023/11/28/TPCTF2023-Writeup/)了，我说怎么core这个题杀的人这么多。
+
+甚至这个题本身也是RCTF2022老题了（game），这个题问题在于`/bin`权限我们几乎都能控制(属主是我们)。只要读了`/init`，就会知道在shell结束之后会umount文件系统，而恰好这个umount是我们可以控制的（是一个指向root busybox的软链，但软链本身属主是我们，所以可以直接换掉），`/init`本身执行是root身份，所以修改umount就提权了。
+
+第二问`/bin`属于root，但是`/lib64/libc.so`我们可以修改，busybox是动态链接，我们又可以注入代码了。
