@@ -1,7 +1,7 @@
 # HPCGAME-01 第一届北京大学高性能计算 个人Writeup
 Ribom 657
 
-[比赛主站](https://hpcgame.pku.edu.cn)，官方题解（待补充）
+[比赛主站](https://hpcgame.pku.edu.cn)，[官方题解](https://github.com/lcpu-club/hpcgame_1st_problems)
 
 H题有些有思路但没做完的优化点，差半个小时，痛失30名。
 
