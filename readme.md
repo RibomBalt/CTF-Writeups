@@ -6,3 +6,4 @@
 - [NewportBlakesCTF2023 + TUCTF2023](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/NBCTF2023)
 - [0CTF2023](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/0CTF2023)
 - [hpcgame2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/hpcgame2024) (not CTF, more like OI)
+- [wolvctf2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/wctf2024)
