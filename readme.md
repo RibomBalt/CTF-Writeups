@@ -517,3 +517,81 @@ typedef struct __jmp_buf_tag jmp_buf[1];
 
 ```
 可见实际上是包含一个`ror 11`（循环移位），与`fs:[0x30]`异或的过程的，这被称为指针保护，保护的就是对控制流非常敏感的`rsp, rbp, rip`。因而在无法泄露`fs:[0x30]`的前提下，我们既不能直接修改指针内容，也不能通过off-by-one rip指针的位置。
+
+
+## 学习其他选手WP
+### Forensics: OSINT3
+参考：[https://warlocksmurf.github.io/posts/utctf2024/#osint-3-forensics](https://warlocksmurf.github.io/posts/utctf2024/#osint-3-forensics)
+
+> 找到Cole Minerton的IP地址
+
+之前提到linktree里是有一个[reddit](https://old.reddit.com/user/coleminerton)地址的，会把我们带到old reddit主页。在Youtube视频评论区里，CM提到自己计划速通一下Tiny Island Survival这款游戏，而reddit里提到他在这个游戏的sub reddit板块被提升为mod（管理员）。可以找到这个subreddit的[moderator页面](https://old.reddit.com/r/tinyislandsurvival/about/moderators)
+
+右下角可以找到一个WIP中的Tiny Island Survival的Wiki，点进去是一个Fandom的[Wiki页面](https://tiny-island-survival.fandom.com/wiki/Tiny_Island_Survival_Wiki)。
+
+很明显这个Wiki应该是CM本人维护的了，找一找编辑记录，很容易能找到一次编辑中CM忘了登录帐号了，那fandom就会记录它此时的IP地址写入编辑历史记录里，于是我们就找到了他的IP是`181.41.206.31`
+
+![](osint_pic/osint_fandom_nologin.png)
+
+
+### Forensics: Chippy Music
+参考：[https://warlocksmurf.github.io/posts/utctf2024/#study-music-forensics](https://warlocksmurf.github.io/posts/utctf2024/#study-music-forensics)
+
+评价为：Adobe Audition不行，Audacity是音频隐写唯一指定分析工具。
+
+我卡在了一个很尴尬的地方，要把`yt-dlp`下载的音频导入audacity，首先需要安装FFMPEG依赖，但我当时一直没安装成功，就想着，反正Audition功能应该更强，获得的信息应该没什么变化吧。
+
+今天我终于安装了audacity特供版FFMPEG（咱也不知道为什么github直接下载的build就是不行，可能太新了），把10小时超长音频导入audacity，等5分钟加载完后，赫然看到中间有一处峰值高度不一样（尖刺状），果断用ffmpeg切出来：`ffmpeg -i ./Chippy\ Music\ \[1Cbaa6dO2Yk\].m4a -ss 03:14:15 -t 00:00:35 ./chippy_clip.m4a`
+
+然后我还专门打开Audition看了一下，毛都没有，估计是峰值归一化了吧，可还行？这还怎么做隐写？
+
+切出来之后一听就是一些嘀嘀嘀的声音，估计是莫尔斯电码了。不过这个阶段Audition的频谱分析功能还是很强大的（UI好看很多），可以发现嘀嘀嘀的声音基本都是440Hz的，可以带通滤波切出来然后肉眼看
+```
+..-/-/..-./.-../.-/--./.-../-----/...-/...--/-/..../....-/-/-../.-/-./-.-./...--
+U T F L A G L 0 V 3 T H 4 T D A N C 3 
+```
+utflag{l0v3th4tdanc3}
+
+### Forensics: Gibberish
+
+参考：[https://meashiri.github.io/ctf-writeups/posts/202403-utctf/#insanity-check-reimagined](https://meashiri.github.io/ctf-writeups/posts/202403-utctf/#insanity-check-reimagined)
+
+- 首先应该要能发现字母里没有`b,z,t`。所以可能这是一种速记键盘，所以当然不会是已知的任何键盘布局。就跟逆向输入法的输入一样。搜索关键词：stenography on qwerty。有个速记软件叫Plover
+- 多个键同时按下时，似乎简单取最长的那一组就行了，但是当一组多于6个键时，还需要松开按键再按下。
+- 总之这个题是挺折磨的，不准备复现
+
+### Forensics: Insanity Check: Reimagined
+
+```
+A reimagined version of our iconic Insanity Check: Redux challenge from UTCTF 2023.
+
+The flag is in CTFd this time, but, as always, you'll have to work for it.
+
+(Specifically the CTFd instance hosting utctf.live)
+
+(This challenge does not require any brute-force -- as per the rules of the competition, brute-force tools like dirbuster are not allowed, and will not help you here.)
+
+By Alex (@.alex_._ on Discord)
+```
+
+这就是所谓的究级藏*题了，只告诉你flag在这个CTFd主站上，找吧！
+
+不过确实是我经验少了，这个题正确的路径应该是F12看请求了什么资源（看源代码会少些东西）。如果能注意到`favicon.svg`是个很可疑的文件就可以进入下一步了。
+
+```svg
+<svg width="384" height="576" viewBox="0 0 384 576" xmlns="http://www.w3.org/2000/svg" id="root">
+<style>
+@keyframes blink {
+0.000% { fill: #FFFF; }
+0.314% { fill: #FFF6; }
+0.629% { fill: #FFFF; }
+0.943% { fill: #FFF6; }
+1.258% { fill: #FFFF; }
+2.201% { fill: #FFF6; }
+2.516% { fill: #FFF6; }
+3.145% { fill: #FFFF; }
+4.088% { fill: #FFF6; }
+4.403% { fill: #FFF6; }
+...
+```
+如果画出颜色变化所在的时间差，这似乎是某种编码，可能是摩尔斯电码。具体观察可以解码出到底哪些组合是短、长、分隔符。
