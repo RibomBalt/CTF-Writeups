@@ -230,7 +230,7 @@ fetch('/flag').then((res)=>{return res.text()}).then((text)=>
 <img src="" onerror="{{code}}"/>
 ```
 
-## web - tickler （好题）
+## web - [tickler](web-tickler) （好题）
 XSS之2，这个题是我第一次接触浏览器的`Content-Security-Policy`（或者CSP），这个技术算是从浏览器层面阻止XSS的一道防线，限定了可以被加载的资源（主要可以通过资源的位置/hash来限制）。这个题的`script-src 'self'`就限定了所有javascript资源只能来自同源。
 
 这个题虽然本身复杂，但是其实还是一个用户账户系统，我们可以注册登录普通权限账户，但需要有特定TOKEN才能注册admin账户（难度和获取FLAG一样）（对应到题目中，就是一个Tickler的属性为有限整数；admin账户是Infinity）。这个题大部分API都是通过trpc实现的，不过和这个题关系不大，只是让前端代码变复杂了。
