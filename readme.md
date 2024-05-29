@@ -346,6 +346,14 @@ ADMIN_PASSWORD = hashlib.md5(
 ## web - store
 只是一个SQL注入，但是始终没找到类似`information_schema.tables`这样的元数据，也没有任何类似`syscolumns`, `@@version`, `version()`这种可以显示数据库版本的信息。我可以爆出源语句是`select id, name, detail from items where name = '{{input}}'`，但是`items`表里只有这三个条目，也没找到别的
 
+> 2024.5.29 更新
+
+看了别人的[writeup](https://yocchin.hatenablog.com/entry/2024/05/29/082700)，原来我一直都没有去试sqlite的语句，CTF wiki和burp sqli cheat sheet上都没写sqlite，我一直以为sqlite和mysql是一样的，哎，仅作记录
+
+- 版本：`select sqlite_version()`，这个题返回`3.45.3`
+- 表信息：`select name, sql from sqlite_master where type = 'table'`，拿到的直接就是建表语句，包含列名和类型
+
+
 ## pwn - og
 
 
