@@ -372,6 +372,8 @@ void FUN_00101a19_sign(int param_1)
 ```
 这个题我感觉应该是和`ld.so`有关，可能堆上有canary相关信息。可惜fsbase在映射地址的低地址处，所以应该无法从这里读取canary。无论是`__stack_chk_fail`还是`_exit`我们似乎都没法干涉。还有可能，因为这个题给了很完整的环境，不知道`xinetd`产生进程是`fork`还是`spawn`，不知道canary是否共享？
 
+> 2024.5.29更新：看[https://deepunk.icu/GeekCTF2024wp/](https://deepunk.icu/GeekCTF2024wp/)，写得好也很有梗
+
 ## pwn-flat
 这个题分为两部分，前半部分是去混淆，题目很明显是`ollvm`那种单个控制变量的混淆方法，非常标准，在diagram里看的很清楚。
 
@@ -583,6 +585,8 @@ hlt
             00 00 00 00
 
 ```
+> web出题人writeup: [https://www.ff98sha.me/archives/543](https://www.ff98sha.me/archives/543)，[https://blog.hans362.cn/post/sjtu-ctf-geekctf-2024-writeup/](https://blog.hans362.cn/post/sjtu-ctf-geekctf-2024-writeup/)
+> 评价为CVE调研/信息获取能力太差，Wordpress题，NextGPT题都是很明显的已知CVE，但是没查出来
 
 ## web - YAJF
 看起来是web题，实际上是bash shell escape。
