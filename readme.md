@@ -1,4 +1,6 @@
 # PKU GeekGame 2nd 个人题解（Writeup）
+
+This is to test Github Action to change main branch
 参赛ID：Ribom（总分2547，校内19名）
 
 - [Writeup](./writeup.md)
