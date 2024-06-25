@@ -1,0 +1,43 @@
+name: Create new entry on main by new branch
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'CTF/**'
+
+jobs:
+  add_entry:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by Gitea!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: echo "workspace=${{ github.workspace }}"
+      - run: echo id=$(id) pwd=$(pwd); which python3; export
+      
+      - name: checkout on local ${{ github.ref }}
+        uses: actions/checkout@v4
+
+      - name: cache readme
+        run: cd ${{ github.workspace }}; cp readme.md /tmp/this_tag_readme
+
+      - name: checkout on main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      
+      - name: get branchname
+        run: cd ${{ github.workspace }}; python3 -c 'print("${{ github.ref }}".split("/",3)[-1])' >/tmp/branchname; echo branch=$(cat /tmp/branchname)
+      
+      - name: check branch existance
+        id: branch_exist
+        run: if [[ -z $(cat readme.md | grep $(cat /tmp/branchname)) ]]; then echo branch not created yet; exit 0; else echo this branch is present; exit 1; fi
+
+      - name: add content to readme
+        run: branchname=$(cat /tmp/branchname); echo "- [$branchname](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/CTF/${branchname}) $(head -n1 /tmp/this_tag_readme | sed s/#//g)" >> readme.md; cat readme.md; git add readme.md; git config user.email Action.Bot; git config user.name Action.Bot; git commit -m "action add ${{ github.ref }}"
+
+      - name: push back to main
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: add entry ${{ github.ref }}
