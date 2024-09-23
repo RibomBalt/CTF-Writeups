@@ -14,3 +14,4 @@
 - [TJCTF 2024 / NahamConCTF 2024 / ångstrom CTF 2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/angstormCTF2024)  (web + pwn)
 - [Google CTF 2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/GoogleCTF2024)  (misc + pwn)
 - [GeekGame2](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/CTF/GeekGame2)  PKU GeekGame 2nd 个人题解（Writeup）
+- [patriotCTF2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/CTF/patriotCTF2024)  Patriot CTF 2024 Personal Writeup
