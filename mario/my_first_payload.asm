@@ -1,18 +1,22 @@
+;.BASE $116B
+; identical as https://tasvideos.org/8991S
+
+; ReadController:
+; 	LDA #$01
+; 	STA $4016	; Strobe the controller
+; 	STA <$C0
+; 	LSR
+; 	STA $4016	; Strobe the controller part 2
+; LoopCont:
+; 	LDA $4016
+; 	LSR
+; 	ROL <$C0	; This isn’t the most optimal controller reading routine
+; 	BCC	LoopCont ; But it takes up fewer bytes, which is important here.
+; 	LDA <$C0
+; 	RTS		; This specific part is a subroutine.
+
+
 ;.BASE $1181
-
-
-; Define our protocol of strings that makes every two frame different:
-; 00101111 (0000AAAA 0001AAAA) 00100000 (lower bits first)
-
-; $116B is the controller read routine
-    
-; ReadTillChangeC2:
-;     JSR $116B
-;     EOR $C2
-;     BNE ReadTillChangeC2
-;     JSR $116B ; read again, avoid time race
-;     RTS
-
 Main:
     LDA #$00    ; store 0300 at <$C4 
     STA <$C4
