@@ -558,6 +558,8 @@ User user may run the following commands on dockerv:
         --device*
 ```
 
+> 赛后：第二问预期解是在容器内`mknod`一个对应设备号、被1000拥有的设备文件，然后在容器外用`/proc/[pid]/root`访问容器内命名空间根目录（不能在容器内cat，有cgroup）。但是有个神秘的非预期是`--security-opt=no-new-privileges:false`，我真的感觉我做的时候试了这种方式，但可能因为flag1我没有完全搞清楚，所以这里以为我试过了其实因为别的原因没有成功。有点可惜
+
 ## ![](https://img.shields.io/badge/general-af2447) 不太分布式的软总线
 最后一天看这题三问怎么那么多人做了，干脆也做一下。分类上这题严格应该属于PPC。
 
