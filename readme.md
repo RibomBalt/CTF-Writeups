@@ -1,7 +1,7 @@
 # Hackergame 2024 个人题解
 Lysithea 48th 5250 
 
-![](https://img.shields.io/badge/你们怎么这么能卷啊-c9d8df) ![](https://img.shields.io/badge/没有openAI_o1_preview用感觉像个原始人-d8b7b0) ![](https://img.shields.io/badge/算力不足恐惧症-c9d8df) ![](https://img.shields.io/badge/Z3也沙疯了-94a28f) ![](https://img.shields.io/badge/好几个就差一步大腿拍烂了-c9d8df) ![](https://img.shields.io/badge/注意力涣散-94a28f) ![](https://img.shields.io/badge/xzrj3攻击服务器了ごめんね-d8b7b0) ![](https://img.shields.io/badge/思维要活跃，要跳脱，不要硬刚-c9d8df) ![](https://img.shields.io/badge/准备赛后不看题解把🥒🐱爆了-d8b7b0)
+![](https://img.shields.io/badge/你们怎么这么能卷啊-7899cc) ![](https://img.shields.io/badge/没有openAI_o1_preview用感觉像个原始人-ffdd88) ![](https://img.shields.io/badge/算力不足恐惧症-7899cc) ![](https://img.shields.io/badge/Z3也沙疯了-779977) ![](https://img.shields.io/badge/好几个就差一步大腿拍烂了-7899cc) ![](https://img.shields.io/badge/注意力涣散-779977) ![](https://img.shields.io/badge/xzrj3攻击服务器了ごめんね-ffdd88) ![](https://img.shields.io/badge/思维要活跃，要跳脱，不要硬刚-7899cc) ![](https://img.shields.io/badge/准备赛后不看题解把🥒🐱爆了-ffdd88)
 
 ## ![](https://img.shields.io/badge/web-0c4d72) 签到 
 
@@ -122,7 +122,7 @@ submit(state.inputs)
 我知道这个OSINT挺放水的了，但是我就是弱OSINT，怎么办嘛
 
 #### Q1: 科里科气
-<img src="[osint/klkq.jpg](https://raw.githubusercontent.com/USTC-Hackergame/hackergame2024-writeups/refs/heads/master/official/%E6%97%85%E8%A1%8C%E7%85%A7%E7%89%87%204.0/photos/klkq.jpg)" width=50%/>
+<img src="https://raw.githubusercontent.com/USTC-Hackergame/hackergame2024-writeups/refs/heads/master/official/%E6%97%85%E8%A1%8C%E7%85%A7%E7%89%87%204.0/photos/klkq.jpg" width=50%/>
 
 > 问题 1: 照片拍摄的位置距离中科大的哪个校门更近？（格式：X校区Y门，均为一个汉字）
 > 问题 2: 话说 Leo 酱上次出现在桁架上是……科大今年的 ACG 音乐会？活动日期我没记错的话是？（格式：YYYYMMDD）
