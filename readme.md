@@ -17,3 +17,4 @@
 - [patriotCTF2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/CTF/patriotCTF2024)  Patriot CTF 2024 Personal Writeup
 - [GeekGame4](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/CTF/GeekGame4)  GeekGame4 个人题解 (2024年清北CTF联合赛“京华杯”) 
 - [hackergame2024](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/CTF/hackergame2024)  Hackergame 2024 个人题解
+- [GeekGame2024-IoT](https://github.com/RibomBalt/CTF-GG3-HG2023-Personal-Writeup/tree/CTF/GeekGame2024-IoT)  GeekGame-IoT线下赛 个人Writeup
